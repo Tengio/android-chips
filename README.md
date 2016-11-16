@@ -55,7 +55,16 @@ When you get a reference to the ChipsView you can add a list of Chips (Interface
 chipsView.setItems(chipList);
 ```
 
-You can also listen to event when chips are removed from the list.
+You can also register listeners to receive callbacks when chips are removed from the list.
+
+```
+chipsView.setOnChipRemovedListener(new OnChipRemovedListener() {
+    @Override
+    public void onRemoved(Chip chip) {
+
+    }
+});
+```
 
 
 Library updates

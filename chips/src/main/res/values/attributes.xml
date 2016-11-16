@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ChipsView">
+        <!--<attr name="filter_radius" format="dimension"/>-->
+        <!--<attr name="filter_margin" format="dimension"/>-->
+        <!--<attr name="filter_border_size" format="dimension"/>-->
+        <!--<attr name="filter_background_color" format="color"/>-->
+        <!--<attr name="filter_border_color" format="color"/>-->
+        <!--<attr name="filter_text_color" format="color"/>-->
+        <!--<attr name="filter_text_size" format="dimension"/>-->
+        <!--<attr name="filter_remove_icon" format="string"/>-->
+        <!--<attr name="filter_space_between" format="dimension"/>-->
+        <attr name="padding" format="dimension"/>
+    </declare-styleable>
+</resources>

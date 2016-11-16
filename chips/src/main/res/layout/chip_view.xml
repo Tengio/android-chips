@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.tengio.android.chips.ChipView xmlns:android="http://schemas.android.com/apk/res/android"
+                                   xmlns:tools="http://schemas.android.com/tools"
+                                   android:layout_width="wrap_content"
+                                   android:layout_height="50dp"
+                                   android:background="@drawable/chip_default">
+
+    <TextView android:id="@+id/chip_view_title"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:layout_centerVertical="true"
+              android:layout_marginLeft="12dp"
+              android:layout_marginStart="12dp"
+              android:textAllCaps="false"
+              android:textColor="@color/black_87"
+              android:textSize="13sp"
+              tools:text="Hello"
+              tools:ignore="RtlHardcoded"/>
+
+    <ImageView android:id="@+id/iv_remove"
+               android:layout_width="24dp"
+               android:layout_height="24dp"
+               android:layout_centerVertical="true"
+               android:layout_marginEnd="4dp"
+               android:layout_marginStart="4dp"
+               android:layout_toEndOf="@id/chip_view_title"
+               android:layout_toRightOf="@id/chip_view_title"
+               android:background="?selectableItemBackgroundBorderless"
+               android:contentDescription="@string/remove"
+               android:src="@drawable/ic_cancel_white"
+               android:tint="@color/black_54"
+               tools:ignore="RtlHardcoded"/>
+
+</com.tengio.android.chips.ChipView>

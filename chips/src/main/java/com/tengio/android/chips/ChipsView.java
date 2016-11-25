@@ -64,9 +64,11 @@ public class ChipsView extends FrameLayout {
                                                   @Override
                                                   public void onItemClick(View view, int position) {
                                                       Chip c = tagAdapter.getItem(position);
-                                                      removeItems(c);
-                                                      if (onChipRemovedListener != null) {
-                                                          onChipRemovedListener.onRemoved(c);
+                                                      if (c.canDelete()) {
+                                                          removeItems(c);
+                                                          if (onChipRemovedListener != null) {
+                                                              onChipRemovedListener.onRemoved(c);
+                                                          }
                                                       }
                                                   }
                                               }));

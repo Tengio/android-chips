@@ -43,7 +43,17 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chipsView.addItems(new CustomChip("New " + ++count));
+                chipsView.addItems(new Chip() {
+                    @Override
+                    public String getLabel() {
+                        return "New " + ++count;
+                    }
+
+                    @Override
+                    public boolean canDelete() {
+                        return true;
+                    }
+                });
             }
         });
     }

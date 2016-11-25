@@ -14,4 +14,9 @@ public class CustomChip implements Chip {
     public String getLabel() {
         return title;
     }
+
+    @Override
+    public boolean canDelete() {
+        return false;
+    }
 }

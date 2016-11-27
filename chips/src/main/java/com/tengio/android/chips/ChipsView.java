@@ -58,16 +58,21 @@ public class ChipsView extends FrameLayout {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(spacing);
         recyclerView.setAdapter(tagAdapter);
-        recyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(getContext(),
-                                              new RecyclerItemClickListener.OnItemClickListener() {
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
                                                   @Override
                                                   public void onItemClick(View view, int position) {
                                                       Chip c = tagAdapter.getItem(position);
-                                                      if (c.canDelete()) {
-                                                          removeItems(c);
-                                                          if (onChipRemovedListener != null) {
+                                                      if (onChipRemovedListener != null){
+                                                          if (onChipRemovedListener.shouldRemove(position, c, view) && c.canDelete()){
+                                                              removeItems(c);
                                                               onChipRemovedListener.onRemoved(c);
+                                                          }
+                                                      } else {
+                                                          if (c.canDelete()) {
+                                                              removeItems(c);
+                                                              if (onChipRemovedListener != null) {
+                                                                  onChipRemovedListener.onRemoved(c);
+                                                              }
                                                           }
                                                       }
                                                   }

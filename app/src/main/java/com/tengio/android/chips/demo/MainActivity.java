@@ -35,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
         chipsView.setItems(chipList);
         chipsView.setOnChipRemovedListener(new OnChipRemovedListener() {
             @Override
+            public boolean shouldRemove(int position, Chip chip, View chipView) {
+                return true;
+            }
+            @Override
             public void onRemoved(Chip chip) {
                 debugView.setText("Chip: " + chip.getLabel() + " removed");
             }

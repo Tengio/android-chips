@@ -4,8 +4,6 @@
                                    android:layout_width="wrap_content"
                                    android:layout_height="32dp"
                                    android:clickable="true"
-                                   android:layout_marginTop="2dp"
-                                   android:layout_marginBottom="2dp"
                                    android:stateListAnimator="@drawable/lift_on_touch"
                                    android:background="@drawable/chip_ripple">
 

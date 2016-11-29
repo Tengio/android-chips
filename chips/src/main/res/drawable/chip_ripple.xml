@@ -6,5 +6,11 @@
             <corners android:radius="16dp" />
         </shape>
     </item>
-    <item android:drawable="@drawable/chip_default" />
+    <item>
+
+        <shape android:shape="rectangle">
+            <corners android:radius="16dp"/>
+            <solid android:color="@color/black_16"/>
+        </shape>
+    </item>
 </ripple>

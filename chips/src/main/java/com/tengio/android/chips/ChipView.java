@@ -2,7 +2,6 @@ package com.tengio.android.chips;
 
 import android.content.Context;
 import android.graphics.Outline;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.LayoutRes;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -47,12 +46,11 @@ public class ChipView extends RelativeLayout {
         ViewOutlineProvider viewOutlineProvider = new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                Drawable drawable = view.getBackground();
-                drawable.getOutline(outline);
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), view.getHeight() / 2);
             }
         };
-
-        this.setOutlineProvider(viewOutlineProvider);
+        setOutlineProvider(viewOutlineProvider);
+        setClipToOutline(true);
     }
 
     public void update(Chip chip) {

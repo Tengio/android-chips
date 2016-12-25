@@ -1,13 +1,9 @@
 apply plugin: 'com.android.application'
-apply from: '../config/quality.gradle'
-
-repositories {
-    maven { url 'https://maven.fabric.io/public' }
-}
+apply plugin: 'com.tengio.gradle.tengio-checkstyle-plugin'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.tengio.android.chips.demo"
         minSdkVersion 21
@@ -33,7 +29,7 @@ dependencies {
         transitive = true;
     }
     compile project(path: ':chips')
-    compile 'com.android.support:appcompat-v7:25.0.0'
-    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
     compile 'com.google.code.gson:gson:2.7'
 }

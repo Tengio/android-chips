@@ -15,7 +15,6 @@ import java.util.List;
 public class ChipsView extends FrameLayout {
 
     private static final int DEFAULT_PADDING = 8;
-    private RecyclerView recyclerView;
     private ChipsAdapter tagAdapter;
     private OnChipRemovedListener onChipRemovedListener;
     private int padding;
@@ -50,7 +49,7 @@ public class ChipsView extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        recyclerView = (RecyclerView) findViewById(com.tengio.android.chips.R.id.chips_view_rv);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.chips_view_rv);
         tagAdapter = new ChipsAdapter();
 
         SpacingDecoration spacing = new SpacingDecoration(0, padding, 0, 0);
@@ -58,25 +57,26 @@ public class ChipsView extends FrameLayout {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(spacing);
         recyclerView.setAdapter(tagAdapter);
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
-                                                  @Override
-                                                  public void onItemClick(View view, int position) {
-                                                      Chip c = tagAdapter.getItem(position);
-                                                      if (onChipRemovedListener != null){
-                                                          if (onChipRemovedListener.shouldRemove(position, c, view) && c.canDelete()){
-                                                              removeItems(c);
-                                                              onChipRemovedListener.onRemoved(c);
-                                                          }
-                                                      } else {
-                                                          if (c.canDelete()) {
-                                                              removeItems(c);
-                                                              if (onChipRemovedListener != null) {
-                                                                  onChipRemovedListener.onRemoved(c);
-                                                              }
-                                                          }
-                                                      }
-                                                  }
-                                              }));
+        recyclerView
+                .addOnItemTouchListener(new RecyclerItemClickListener(getContext(), new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        Chip c = tagAdapter.getItem(position);
+                        if (onChipRemovedListener != null) {
+                            if (onChipRemovedListener.shouldRemove(position, c, view) && c.canDelete()) {
+                                removeItems(c);
+                                onChipRemovedListener.onRemoved(c);
+                            }
+                        } else {
+                            if (c.canDelete()) {
+                                removeItems(c);
+                                if (onChipRemovedListener != null) {
+                                    onChipRemovedListener.onRemoved(c);
+                                }
+                            }
+                        }
+                    }
+                }));
         tagAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onChanged() {

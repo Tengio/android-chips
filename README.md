@@ -7,7 +7,7 @@ Ideally this library should follow [material design spec](https://material.googl
  still not implemented.
 
 
-![alt tag](https://raw.githubusercontent.com/Tengio/android-chips/master/config/images/chips.jpg)
+![alt tag](https://raw.githubusercontent.com/Tengio/android-chips/master/resources/chips.jpg)
 
 
 Version

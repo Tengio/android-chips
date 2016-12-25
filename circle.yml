@@ -1,0 +1,16 @@
+dependencies:
+  pre:
+      - 'echo "y" | android list sdk'
+      - 'echo "y" | android update sdk --no-ui --all --filter platform-tools,tool,extra-android-m2repository,extra-android-support,extra-google-google_play_services,extra-google-m2repository,android-25'
+      - 'echo "y" | android update sdk --no-ui --all --filter build-tools-25.0.2'
+
+test:
+  override:
+    - './gradlew checkstyle testDebug'
+
+machine:
+  environment:
+    _JAVA_OPTIONS: "-Xms512m -Xmx1024m"
+    GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+  java:
+    version: oraclejdk8

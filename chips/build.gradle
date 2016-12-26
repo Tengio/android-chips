@@ -1,10 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.tengio.gradle.tengio-checkstyle-plugin'
-
-project.version = "0.3.1"
-project.group = "com.tengio.android"
+apply from: 'https://raw.githubusercontent.com/Tengio/tengio-bintray-script/master/bintray.gradle'
 
 android {
     compileSdkVersion 25
@@ -31,44 +28,16 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+project.version = "0.3.1"
+project.group = "com.tengio.android"
+
 bintray {
-    user = BINTRAY_USER
-    key = BINTRAY_KEY
-    configurations = ['archives']
     pkg {
-        repo = 'maven'
         name = 'android-chips'
-        userOrg = 'tengioltd'
-        licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/Tengio/android-chips.git'
     }
 }
 
-android.libraryVariants.all { variant ->
-    def name = variant.buildType.name
-    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
-        return;
-    }
-    def task = project.tasks.create "jar${name.capitalize()}", Jar
-    task.dependsOn variant.javaCompile
-    task.from variant.javaCompile.destinationDir
-    artifacts.add('archives', task);
-}
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath = files(project.android.getBootClasspath())
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
 artifacts {
     archives javadocJar
     archives sourcesJar

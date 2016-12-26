@@ -13,8 +13,8 @@ Ideally this library should follow [material design spec](https://material.googl
 Version
 -------
 
-//TODO
-[ ![Download](https://api.bintray.com/packages/tengioltd/maven/chips/images/download.svg) ](https://bintray.com/tengioltd/maven/chips/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/tengioltd/maven/android-chips/images/download.svg) ](https://bintray
+.com/tengioltd/maven/android-chips/_latestVersion)
 
 
 HOW TO
